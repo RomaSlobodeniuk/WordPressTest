@@ -6,4 +6,4 @@
     </div>
 </div>
 <!-- Use any element to open the sidenav -->
-<span onclick="openNav()">open</span>
+<span onclick="openNav()">Navigation</span>
