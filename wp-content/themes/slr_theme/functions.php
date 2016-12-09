@@ -42,3 +42,20 @@ register_sidebar(
         'before_title' => '<h2>',
         'after_title' => '</h2>'
     ));
+
+
+function get_images_from_media_library() {
+    $args = array(
+        'post_type' => 'attachment',
+        'post_mime_type' =>'image',
+        'post_status' => 'inherit',
+        'posts_per_page' => 5,
+        'orderby' => 'rand'
+    );
+    $query_images = new WP_Query( $args );
+    $images = array();
+    foreach ( $query_images->posts as $image) {
+        $images[]= $image->guid;
+    }
+    return $images;
+}
