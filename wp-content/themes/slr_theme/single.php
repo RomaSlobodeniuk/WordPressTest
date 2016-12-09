@@ -1,21 +1,22 @@
 <?php get_header(); ?>
 
 <div class="container">
+    <div class="jumbotron>">
 
-        <div class="col-sm-9">
-            <main>
-
-                <?php while (have_posts()) {
-                    the_post(); ?>
-                    <h2><?php the_title(); ?></h2>
-                    <div><?php the_content(); ?></div>
+        <main>
+            <?php while (have_posts()) {
+                the_post(); ?>
+                <h2><?php the_title(); ?></h2>
+                <div><?php the_content(); ?></div>
+                <div class="alert alert-info">
                     <?php do_action('the_content_from_plugin'); ?>
-                    <hr/>
-                <?php } ?>
+                </div>
+                <hr/>
+            <?php } ?>
 
-            </main>
-        </div>
+        </main>
     </div>
+</div>
 
 </div>
 

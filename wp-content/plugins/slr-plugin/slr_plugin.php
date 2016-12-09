@@ -24,7 +24,7 @@ define('TEST_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('TEST_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 function insertAdditionalText() {
-    echo "<h3> Hello World from plugin </h3>";
+    echo "<h3> Hello World from \"slr-plugin\" created by Roma :) </h3>";
 }
 
 //add_action('the_content', 'insertAdditionalText');
