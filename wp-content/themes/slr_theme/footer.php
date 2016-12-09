@@ -3,7 +3,7 @@
 <div class="navbar-collapse collapse">
 	<?php
 	wp_nav_menu( array(
-		'theme_location' => 'secondly',
+		'theme_location' => 'secondary',
 		'menu_class'     => 'nav navbar-nav'
 	) );
 	?>

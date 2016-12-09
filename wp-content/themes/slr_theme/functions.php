@@ -1,8 +1,8 @@
 <?php
 
 register_nav_menus( array(
-	'primary' => __( 'Home' ),
-	'secondly' => 'Second menu'
+	'primary' => __( 'Main menu' ),
+	'secondary' => 'Socials menu'
 ));
 
 function hello_world()
