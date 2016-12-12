@@ -7,11 +7,6 @@ register_nav_menus( array(
 
 add_theme_support( 'post-thumbnails' );
 
-function hello_world()
-{
-	return 'Hello world';
-}
-
 register_sidebar(
     array(
         'id' => 'sidebar_pages',
