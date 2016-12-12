@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <div class="row">
     <div class="container">
         <div class="jumbotron col-sm-12>">

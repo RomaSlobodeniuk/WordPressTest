@@ -10,11 +10,6 @@
                         <div class="com"><?php the_content(); ?></div>
                         <hr/>
                     <?php endwhile; ?>
-
-                    <?php foreach (get_images_from_media_library() as $src):; ?>
-                        <?php echo '<img src="' . $src . '" class="img-thumbnail" alt="Cinque Terre">'; ?>
-                    <?php endforeach; ?>
-
                 </main>
             </div>
         </div>
