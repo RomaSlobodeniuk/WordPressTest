@@ -2557,7 +2557,8 @@ function get_the_posts_pagination( $args = array() ) {
  * @param array $args Optional. See get_the_posts_pagination() for available arguments.
  *                    Default empty array.
  */
-function the_posts_pagination( $args = array() ) {
+function
+the_posts_pagination( $args = array() ) {
 	echo get_the_posts_pagination( $args );
 }
 

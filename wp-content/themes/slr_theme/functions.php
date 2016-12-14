@@ -39,15 +39,9 @@ register_sidebar(
     ));
 
 
-function get_images_from_media_library() {
-    $args = array(
-        'post_type' => 'attachment',
-        'post_mime_type' =>'image',
-        'post_status' => 'inherit',
-        'posts_per_page' => 5,
-        'orderby' => 'rand'
-    );
-    $query_images = new WP_Query( $args );
+
+function get_images_from_media_library($query_images) {
+
     $images = array();
     foreach ( $query_images->posts as $image) {
         $images[]= $image->guid;

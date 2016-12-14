@@ -55,8 +55,8 @@ add_action( 'admin_menu', 'register_my_custom_menu_page' );
 
 function register_my_custom_menu_page ()
 {
-    add_menu_page( 'Lesson Plugin', 'Lesson PL', 'manage_options', 'lesson_plugin_1', 'lesson_plugin', null, 59 );
-    add_submenu_page( 'lesson_plugin_1', 'Lesson sub Plugin', 'Lesson sub PL', 'manage_options', 'lesson_plugin_2', 'lesson_plugin');
+    add_menu_page( 'Lesson Plugin', 'Lesson PL main', 'manage_options', 'lesson_plugin_main', 'lesson_plugin', null, 59 );
+    add_submenu_page( 'lesson_plugin_main', 'Lesson sub Plugin', 'Lesson PL sub', 'manage_options', 'lesson_pl_sub_1', 'lesson_plugin');
 }
 
 define('LESSON_PLUGIN_BOX', 'lesson_plugin_box');
