@@ -8,14 +8,16 @@
                         <h2><?php the_title(); ?></h2>
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="picture">
-                                <?php the_post_thumbnail(); ?>
+                                <?php the_post_thumbnail('thumbnail',
+                                    $attr = array(
+                                    'class' => "img-circle",
+                                )); ?>
                             </div>
                         <?php endif; ?>
                         <div><?php the_excerpt(); ?></div>
                         <a class="btn btn-sm btn-primary" href="<?php echo get_permalink(); ?>"> Read more </a>
                         <hr/>
                     <?php endwhile; ?>
-
                 </main>
             </div>
 

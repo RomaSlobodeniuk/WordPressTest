@@ -37,8 +37,13 @@ class SlrWidget extends WP_Widget
     public function widget($args, $instance) {
         $title = $instance["title"];
         $text = $instance["text"];
-        echo "<h1>$title</h1>";
-        echo "<h3>$text</h3>";
-        echo "<h3>It works!</h3>";
+        echo "<div class=\"panel panel-danger\">
+                <div class=\"panel-heading\">
+                    <h1>$title</h1>
+                </div>
+                <div class=\"panel-body\">
+                <h3>$text</h3>
+              </div>
+              </div>";
     }
 }
