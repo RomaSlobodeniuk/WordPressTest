@@ -40,16 +40,6 @@ class lesson_widget extends WP_Widget
     $text = $instance["text"];
     echo "<h2>$title</h2>";
     echo "<p>$text</p>";
-
-
-    echo do_shortcode('[contact-form-7 id="32" title="Contact form 1"]');
-
-    echo "<div class=\"navbar-collapse collapse\">".
-      wp_nav_menu( array(
-        'theme_location' => 'secondly',
-        'menu_class'     => 'nav navbar-nav'
-      ) )
-    ."</div>";
   }
 
 }

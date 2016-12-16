@@ -48,7 +48,7 @@ register_sidebar(
     ));
 
 function lesson_plugin () {
-    echo 'Hello World';
+    echo 'Hello World, this is an invoked function in "add_menu_page"';
 }
 
 add_action( 'admin_menu', 'register_my_custom_menu_page' );
