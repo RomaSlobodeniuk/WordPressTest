@@ -18,11 +18,11 @@
         </div>
         <div class="col-sm-3">
             <div class="panel-group">
-                <?php if (!dynamic_sidebar('new_sidebar')) : ?><?php endif; ?>
+                <?php if (!dynamic_sidebar('new_sidebar')) : ?>you're fail<?php endif; ?>
+                <?php if (!dynamic_sidebar('imho_sidebar')) : ?>you're fail<?php endif; ?>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <?php get_footer(); ?>

@@ -37,8 +37,26 @@ register_sidebar(
         'before_title' => '<h2>',
         'after_title' => '</h2>'
     ));
-
-
+register_sidebar(
+    array(
+        'id' => 'new_sidebar',
+        'name' => __( "My widget #1" ),
+        'description' => 'Just created widget',
+        'before_widget' => '<div id="%1$s" class="widget %2$s ourselve">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+    ));
+register_sidebar(
+    array(
+        'id' => 'imho_sidebar',
+        'name' => __( "IMHO" ),
+        'description' => 'Someone\' humble opinion',
+        'before_widget' => '<div class="panel panel-info">',
+        'after_widget' => '</div>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>'
+    ));
 
 function get_images_from_media_library($query_images) {
 

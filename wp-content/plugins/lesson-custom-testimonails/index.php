@@ -12,24 +12,53 @@ define('LCT_PLUGIN', 'custom_testimonial');
 define('LCT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('LCT_PLUGIN_URL', plugin_dir_url(__FILE__));
 
-include(LCT_PLUGIN_DIR . 'modules/init_post_type.php');
+include (LCT_PLUGIN_DIR . 'modules/init_post_type.php');
+include (LCT_PLUGIN_DIR . 'modules/WidgetTestimonials.php');
 
+add_action("widgets_init", function () {
+    register_widget("WidgetTestimonials");
+});
 
-add_shortcode('lct_plugin_testimonials', function ($attr) {
+add_shortcode('lct_plugin_testimonials_widget', function ( $attr ) {
+    $args =  [
+        'post_type' => LCT_PLUGIN,
+        'meta_key' => 'username',
+        'number' => $attr['counter'],
+        'sort_order' => $attr['order_by']
+    ];
+    $pages = get_pages( $args );
 
-    $pages = get_pages([
-        'post_type' => LCT_PLUGIN
-    ]);
+    $block = '<div class="panel-body"><ul>';
+    foreach(  $pages as $page )
+    {
+        $block.= '<li style="border-top: 1px dotted green;">';
+        $block.= '<h4> Author: ' . $page->meta_value . '</h4>';
+        $block.= '<p>'.$page->post_content.'</p>';
+        $block.= '<a href="' . get_permalink( $page->ID ) . '">See more</a>';
+        $block.= '</li>';
+    }
+    $block.= '</ul></div>';
+    return $block;
+});
+
+add_shortcode('lct_plugin_testimonials', function ( $attr ) {
+    $pages = get_pages( [
+        'post_type' => LCT_PLUGIN,
+        'meta_key' => 'username'
+    ] );
 
     $block = '<div class="row">';
 
-    foreach ($pages as $page) {
-        $block .= '<div class="col-sm-6" style="border: 1px dotted red;">' . $page->post_content . '</div>';
+    foreach(  $pages as $page )
+    {
+        $block.= '<div class="col-sm-6" style="border: 1px dotted red;">';
+        $block.= '<h3> Author: ' . $page->meta_value . '</h3>';
+        $block.= '<p>'.$page->post_content.'</p>';
+        $block.= '<a href="' . get_permalink( $page->ID ) . '">See more</a>';
+        $block.= '</div>';
     }
 
-    $block .= '</div>';
-
-//  var_dump($pages);
+    $block.= '</div>';
 
     return $block;
 });
@@ -67,31 +96,31 @@ add_shortcode('lct_plugin_add_testimonials', function ($attr) {
 
 function is_post_own()
 {
-    return LCT_PLUGIN === get_post_type(get_the_ID());
+    return LCT_PLUGIN === get_post_type( get_the_ID() );
 }
 
-function save_new_testimonial($post_id)
-{
+function save_new_testimonial( $post_id ) {
 
-    if (wp_verify_nonce($_POST[LCT_PLUGIN], LCT_PLUGIN)) {
+    if ( wp_verify_nonce( $_POST[ LCT_PLUGIN ], LCT_PLUGIN ) ) {
 
-        $username = stripslashes($_POST['username']);
-        $testimonial = stripslashes($_POST['testimonial']);
-        if (trim($testimonial)) {
+        $username = stripslashes( $_POST['username'] );
+        $testimonial = stripslashes( $_POST['testimonial'] );
+        if ( trim( $testimonial ) )
+        {
 //      update_post_meta($post_id, 'copied', '1');
 
             // Create post object
             $my_post = array(
-                'post_title' => wp_strip_all_tags(""),
-                'post_content' => $testimonial,
-                'post_status' => 'draft',
-                'post_author' => 1,
+                'post_title'    => wp_strip_all_tags( "" ),
+                'post_content'  => $testimonial,
+                'post_status'   => 'publish',
+                'post_author'   => 1,
                 'post_category' => [],
-                'post_type' => LCT_PLUGIN
+                'post_type'     => LCT_PLUGIN
             );
 
             // Insert the post into the database
-            if ($post_id = wp_insert_post($my_post)) {
+            if ( $post_id = wp_insert_post( $my_post )) {
                 echo $post_id;
 
                 add_post_meta($post_id, 'username', $username);
@@ -102,4 +131,4 @@ function save_new_testimonial($post_id)
 
 }
 
-add_action('init', 'save_new_testimonial');
+add_action( 'init', 'save_new_testimonial' );

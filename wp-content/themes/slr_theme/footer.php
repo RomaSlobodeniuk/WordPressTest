@@ -9,10 +9,8 @@
 	?>
 </div>
 
-</div>
-
 <?php wp_footer(); ?>
-<script src="<?php echo get_template_directory_uri() . '/js/my_js.js'; ?>"></script>
-
+<script src="<?php echo get_template_directory_uri() . '/js/my_js.js?12909077'; ?>"></script>
+</div>
 </body>
 </html>

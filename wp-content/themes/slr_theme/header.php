@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?php home_url('/'); ?>"> <?php bloginfo('name'); ?> </a>
-                    <a class="navbar-brand"><span onclick="openNav()">Sidebar</span></a>
+                    <a class="navbar-brand"><span onclick="openNav()">SIDEBAR</span></a>
                 </div>
                 <ul class="nav navbar-nav">
                     <?php
